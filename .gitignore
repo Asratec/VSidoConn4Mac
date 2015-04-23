@@ -26,3 +26,9 @@
 *.exe
 *.out
 *.app
+
+
+VSidoConn4Mac.tar.gz
+VSidoConnServer
+objects
+package
