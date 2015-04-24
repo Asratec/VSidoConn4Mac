@@ -1,2 +1,2 @@
 #!/bin/bash
-./usr/bin/VSido.srv
+cd ./usr/bin/ && ./VSido.srv

@@ -33,7 +33,12 @@ PACKROOT := $(shell pwd)/package
 INSTALLROOT := /home/sysroot/usr
 
 
-.PHONY: all build install package clean
+LDWS = $(shell otool -L $(PACKROOT)/usr/bin/VSido.srv \
+	| grep libwebsockets.dylib \
+	| sed -e "s/ (compatibility version 0.0.0, current version 0.0.0)//g”)
+
+
+.PHONY: all build install package ld-path clean
 all:package
 
 build: pre-build
@@ -47,6 +52,8 @@ package:pre-package
 	make -C VSidoConnServer package
 	cd $(OBJROOT) && make install
 	tar xzvf VSidoConnServer/VSidoConnServer.tar.gz -C $(PACKROOT)/
+	chmod +x ./fixldpath.sh
+	./fixldpath.sh $(PACKROOT)/usr/bin/VSido.srv
 	tar czvf VSidoConn4Mac.tar.gz -C $(PACKROOT) ./
 
 clean:
@@ -67,5 +74,6 @@ pre-package:
 service:
 	make -C Config
 
-	
+
+
 	
