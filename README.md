@@ -2,7 +2,7 @@
 V-Sido CONNECT Sample Code For Mac OS X  
 
 
-ビルド済みバイナリをインストールする。
+ビルド済みバイナリをインストールする。  
   https://v-sido-developer.com/files/pdf/150514001006001.pdf  
 
 	
