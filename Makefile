@@ -50,8 +50,8 @@ install:
 
 package:pre-package
 	make -C VSidoConnServer package
-	cd $(OBJROOT) && make install
 	tar xzvf VSidoConnServer/VSidoConnServer.tar.gz -C $(PACKROOT)/
+	cd $(OBJROOT) && make install
 	chmod +x ./fixldpath.sh
 	./fixldpath.sh $(PACKROOT)/usr/bin/VSido.srv
 	tar czvf VSidoConn4Mac.tar.gz -C $(PACKROOT) ./
@@ -67,6 +67,7 @@ pre-build:
 	cd $(OBJROOT) && cmake -DCMAKE_INSTALL_PREFIX=$(INSTALLROOT) $(SRCROOT)
 
 pre-package:
+	mkdir -p $(PACKROOT)
 	mkdir -p $(OBJROOT)
 	cd $(OBJROOT) && cmake -DCMAKE_INSTALL_PREFIX=$(PACKROOT) $(SRCROOT)
 	
