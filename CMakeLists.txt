@@ -33,9 +33,9 @@ project (VSidoConn4Mac)
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -std=c11")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
+add_subdirectory(SelectRobot)
 add_subdirectory(Overlay/VSidoWeb)
 
 install(FILES runConn.sh PERMISSIONS OWNER_EXECUTE OWNER_WRITE OWNER_READ DESTINATION ./ )
 install(FILES runWeb.sh PERMISSIONS OWNER_EXECUTE OWNER_WRITE OWNER_READ DESTINATION ./ )
-install(FILES SelectRobot.zip PERMISSIONS OWNER_EXECUTE OWNER_WRITE OWNER_READ DESTINATION ./ )
 
